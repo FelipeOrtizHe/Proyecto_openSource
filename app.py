@@ -18,7 +18,7 @@ test = pd.read_csv('/content/drive/MyDrive/DB/datasets_tweeter/test.csv')
 # EMOCIONES QUE SE VAN A UTILIZAR
 class_names = ['sadness', 'joy', 'love', 'anger', 'fear', 'surprise']
 
-# DEFINIMOS FORMALMENTE LA ESTRUCTURA QUE VA A TENER NUESTRI DATASET
+# DEFINIMOS FORMALMENTE LA ESTRUCTURA QUE VA A TENER NUESTRA DATASET
 feat = Features({'text': Value('string'), 'label': ClassLabel(names=class_names)})
 
 # CONVERTIMOS LOS DATAFRAME A DATASETS DE FORMATO DE HUGGING FACE (CONTENEDOR DE MULTIPLES DATASETS)
@@ -34,11 +34,11 @@ emotions = DatasetDict({
 train_ds = emotions["train"]
 train_ds[0:5]
 
-# EN CASO DE QUE NECESITEMOS LA EN UNA DATAFRAME DE PANDAS (don't forget to reset)
+# EN CASO DE QUE NECESITEMOS EL FORMATO DE PANDAS (don't forget to reset)
 emotions.set_format(type="pandas")
 df = emotions["train"][:]
 
-# CUANDO NECESITEMOS AGREGAR LOS LABES DE LA COLUMNA LABEL EN TEXTO
+# CUANDO NECESITEMOS AGREGAR LOS LABELS DE LA COLUMNA LABEL EN TEXTO
 # Add label data to dataframe
 def label_int_to_str(row):
     return emotions["train"].features["label"].int2str(row)
@@ -59,8 +59,8 @@ px.box(df,y='Words Per Tweet',
        template='plotly_dark')
 
 
-# DistilBERT  NO PUEDE RECIBIR EL TWEET COMPLETO COM UN STRING, ASI QUE DEBE TOKENIZAR
-# TENEMOS TOKENIZACION POR cCARACTERES, PALABRAS Y SUBPALABRAS
+# DistilBERT  NO PUEDE RECIBIR EL TWEET COMPLETO COMO UN STRING, ASI QUE DEBE TOKENIZAR
+# TENEMOS TOKENIZACION POR CARACTERES, PALABRAS Y SUBPALABRAS
 
 # TOKENIZANDO EL DATASET DE ENTRENAMIENTO
 
