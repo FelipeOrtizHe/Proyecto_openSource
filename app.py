@@ -1,12 +1,13 @@
 import panel as pn
 import pandas as pd
+import hvplot.pandas
 from model import load_model, classify_text
 from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
 def main():
-    pn.extension()
+    pn.extension('hvplot')
     
     # Cargar modelo y hacer predicciones
     classifier = load_model()
@@ -20,7 +21,9 @@ def main():
     panel = pn.Column(
         pn.pane.Markdown(f"## Dato de prueba:\n{new_data}"),
         pn.pane.Markdown("## Predictions"),
-        pn.pane.DataFrame(df_preds)
+        pn.pane.DataFrame(df_preds),
+        pn.pane.Markdown("## Gráfico de barra de predicciones"),
+        df_preds.hvplot.bar(x='label', y='score', rot=90, width=500, height=400)
     )
     panel.show()
 
