@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Classification Results</title>
+    <link rel="stylesheet" href="/style/styles.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Aquí se renderizará el panel -->
+    <div id="container">
+        <header id="header">
+            <div class="logo">
+                <img src="/images/x.png.png" alt="twitter">
+            </div>
+            <div class="title">
+                <h1>CLASIFICACIÓN DE TWEETS</h1>
+            </div>
+        </header>
+                      
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="tutorial.html">Tutorial</a></li>
+            <li><a href="classificator.html">¡¡Clasificador!!</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="history.html">Records</a></li>
+        </ul>
+        <hr>
     </div>
-    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.2.min.js"></script>
-    <script>
-        Bokeh.embed.embed_item(window.panelModel);
-    </script>
+    </header>
+
+    <div id = "ejemplo">
+        <pre>
+            <H3>CLASIFICADOR EMOCIONAL DE TWEETS</H3>
+        En este proyecto llamado Emocional Tweets, se busca clasificar los tweets que se envien (ya sea por un archivo .csv o por escribirlos de manera indiviual) para esto se ha entrenado un algoritmo 
+        que busca identificar los sentimientos que el usuario quiere demostrar en los tweets, las predicciones hechas por el modelo estan cerca al 95% de acierto. 
+
+        A continuacion se mostrara una imagen, la cual quiere demostar como el entrenamiento del modelo indica ciertos patrones respecto a los sentimientos que se desean predecir 
+        
+        <div id="ejemplo">
+        <img src="/images/resultados.jpg" alt="resultados entrenados">
+        </div>
+
+        Ahora para continuar con el uso del clasificador de tweets, podremos ir al tutorial para conocer como es el uso del mismo.
+        
+
+        
+        </pre>
+    </div>
+        
+
 </body>
 </html>
+    

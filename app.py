@@ -1,6 +1,9 @@
 import panel as pn
 import pandas as pd
 from model import load_model, classify_text
+from flask import Flask, request, render_template, redirect, url_for
+
+app = Flask(__name__)
 
 def main():
     pn.extension()
@@ -15,6 +18,7 @@ def main():
     
     # Crear panel para visualización
     panel = pn.Column(
+        pn.pane.Markdown(f"## Dato de prueba:\n{new_data}"),
         pn.pane.Markdown("## Predictions"),
         pn.pane.DataFrame(df_preds)
     )
