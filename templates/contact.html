@@ -30,7 +30,50 @@
     </div>
     
     </header>
-        
+
+    <main id="main-content">
+        <h2>Contact Us</h2>
+        <form action="submit_contact.php" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="subject">Asunto:</label><br>
+            <input type="text" id="subject" name="subject" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="3" required></textarea><br><br>
+
+            <label for="emoji">Que opinas del clasificador:</label><br>
+            <select id="emoji" name="emoji">
+                <option value="happy">&#128522; Feliz</option>
+                <option value="sad">&#128546; Triste</option>
+                <option value="angry">&#128544; Furioso</option>
+                <option value="confused">&#128533; Confundido</option>
+            </select><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+
+    <div class="contact-directly">
+        <h3>¡¡Contactanos Directamente!!</h3>
+        <div class="social-media-icons">
+            <a href="https://github.com/FelipeOrtizHe"  title="github">
+                <img src="/images/github.png" alt="github">
+            </a>
+            <a href="https://www.linkedin.com/in/felipe-ortiz-b26538248/"  title="LinkedIn">
+                <img src="/images/linked.png" alt="linked">
+            </a>
+        </div>
+
+
+
+     <footer id="footer">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </footer>
 
 </body>
 </html>
