@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutorial</title>
-    <link rel="stylesheet" href="/style/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     <div id="container">
         <header id="header">
             <div class="logo">
-                <img src="/images/x.png.png" alt="twitter">
+                <img src="{{ url_for('static', filename='images/x.png.png') }}" alt="twitter">
             </div>
             <div class="title">
                 <h1>CLASIFICACIÓN DE TWEETS</h1>
@@ -21,11 +21,11 @@
         </header>
     <div id="menu">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="classificator.html">¡¡Clasificador!!</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-            <li><a href="history.html">Records</a></li>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+            <li><a href="{{ url_for('classificator') }}">¡¡Clasificador!!</a></li>
+            <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+            <li><a href="{{ url_for('history') }}">Records</a></li>
         </ul>
         <hr>
     </div>
@@ -51,12 +51,12 @@
         el analisis del dato 
 
         <div id="ejemplo">
-        <img src="/images/prueba1.png" alt="resultados escrito">
+        <img src="{{ url_for('static', filename='images/prueba1.png') }}" alt="resultados escrito">
         </div>
 
         La grafica de barras:
         <div id="ejemplo">
-            <img src="/images/prueba2.png" alt="resultados escrito">
+            <img src="{{ url_for('static', filename='images/prueba2.png') }}" alt="resultados escrito">
             </div>
         </pre>
     </div>

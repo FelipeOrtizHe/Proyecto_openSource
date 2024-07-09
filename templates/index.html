@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Classification Results</title>
-    <link rel="stylesheet" href="/style/styles.css">
+    <title>Inicio</title>
+    <script>
+        function showForm() {
+            var selection = document.getElementById('optionSelect').value;
+            var csvForm = document.getElementById('csvForm');
+            var tweetForm = document.getElementById('tweetForm');
+            
+            if (selection === 'csv') {
+                csvForm.style.display = 'block';
+                tweetForm.style.display = 'none';
+            } else if (selection === 'tweet') {
+                csvForm.style.display = 'none';
+                tweetForm.style.display = 'block';
+            } else {
+                csvForm.style.display = 'none';
+                tweetForm.style.display = 'none';
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -13,49 +31,79 @@
     <div id="container">
         <header id="header">
             <div class="logo">
-                <img src="/images/x.png.png" alt="twitter">
+                <img src="{{ url_for('static', filename='images/x.png.png') }}" alt="twitter">
             </div>
             <div class="title">
                 <h1>CLASIFICACIÓN DE TWEETS</h1>
             </div>
         </header>
-                      
-    <div id="menu">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="tutorial.html">Tutorial</a></li>
-            <li><a href="classificator.html">¡¡Clasificador!!</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-            <li><a href="history.html">Records</a></li>
-        </ul>
-        <hr>
-    </div>
-    </header>
-
-    <div id = "ejemplo">
-        <pre>
-            <h3>CLASIFICADOR EMOCIONAL DE TWEETS</h3>
-        En este proyecto llamado Emocional Tweets, se busca clasificar los tweets que se envien (ya sea por un archivo .csv o por escribirlos de manera indiviual) para esto se ha entrenado un algoritmo 
-        que busca identificar los sentimientos que el usuario quiere demostrar en los tweets, las predicciones hechas por el modelo estan cerca al 95% de acierto. 
-
-        A continuacion se mostrara una imagen, la cual quiere demostar como el entrenamiento del modelo indica ciertos patrones respecto a los sentimientos que se desean predecir 
-        
-        <div id="ejemplo1">
-        <img src="/images/resultados.jpg" alt="resultados entrenados">
+        <div id="menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Inicio</a></li>
+                <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+                <li><a href="{{ url_for('classificator') }}">¡¡Clasificador!!</a></li>
+                <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+                <li><a href="{{ url_for('history') }}">Records</a></li>
+            </ul>
+            <hr>
         </div>
 
-        Ahora para continuar con el uso del clasificador de tweets, podremos ir al tutorial para conocer como es el uso del mismo.
-
-
+        <!-- Selección de opción -->
+        <div id="opciones">
+            <label for="optionSelect"><h2>Elige una opción:</h2></label>
+            <select id="optionSelect" onchange="showForm()">
+                <option value="">--Selecciona una opción--</option>
+                <option value="csv">Subir archivo CSV</option>
+                <option value="tweet">Ingresar Tweet</option>
+            </select>
+        </div>
+        <hr>
         
-        </pre>
+        <!-- Formulario para subir archivo CSV -->
+        <form id="csvForm" action="{{ url_for('upload_csv') }}" method="post" enctype="multipart/form-data" style="display: none;">
+            <label for="csvFile">Subir archivo CSV:</label>
+            <input type="file" id="csvFile" name="csvFile" accept=".csv">
+            <button type="submit">Subir CSV</button>
+        </form>
+        
+        <!-- Formulario para ingresar un tweet manualmente -->
+        <form id="tweetForm" action="{{ url_for('submit_tweet') }}" method="post" style="display: none;">
+            <label for="tweetText">Ingresar Tweet:</label>
+            <textarea id="tweetText" name="tweetText" rows="4" cols="50" placeholder="Escribe tu tweet aquí..."></textarea>
+            <button type="submit">Enviar Tweet</button>
+        </form>    
+
+        <div id="results">
+            {% if new_data %}
+                <h2>Dato de prueba:</h2>
+                <p>{{ new_data }}</p>
+                <h2>Predicciones</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Emociones</th>
+                            <th>Porcentaje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for emotion, percentage in results %}
+                            <tr>
+                                <td>{{ emotion }}</td>
+                                <td>{{ percentage }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Mostrar el gráfico de barras -->
+                <h2>Gráfico de barra de predicciones</h2>
+                {{ plot | safe }}
+            {% endif %}
+        </div>
+
+        <footer id="footer">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        </footer>
     </div>
-
-    <footer id="footer">
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-    </footer>
-        
-
 </body>
 </html>
-    
