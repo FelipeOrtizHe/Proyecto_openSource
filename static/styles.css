@@ -12,6 +12,14 @@ body,html{
 }
 
 
+#menu hr {
+  border-color: #1DA1F2;
+  border-width: 1px; 
+  margin-top: 10px; 
+  margin-bottom: 10px; 
+}
+
+
 
 #container {
     width: 100%; 

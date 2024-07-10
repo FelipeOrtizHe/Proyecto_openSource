@@ -1,8 +1,17 @@
+
 import pandas as pd
 
-def load_emotions_dataset():
-    train_df = pd.read_csv(r'C:\Users\felip\OneDrive\Escritorio\Programacion\clasificador_tweets\training.csv')
-    return train_df
 
-def get_first_n_records(df, n=5):
-    return df.head(n)
+def detect_text_column(data):
+    # Asumimos que la columna con las frases tendrá la mayor longitud promedio de cadenas
+    text_column = None
+    max_avg_length = 0
+
+    for column in data.columns:
+        if data[column].dtype == object:  # Solo consideramos columnas de tipo string
+            avg_length = data[column].str.len().mean()
+            if avg_length > max_avg_length:
+                max_avg_length = avg_length
+                text_column = column
+
+    return text_column
