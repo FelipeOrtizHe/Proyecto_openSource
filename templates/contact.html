@@ -20,64 +20,71 @@
             </div>
         </header>
                       
+        
     <div id="menu">
         <ul>
             <li><a href="{{ url_for('index') }}">Inicio</a></li>
             <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
             <li><a href="{{ url_for('classificator') }}">¡¡Clasificador!!</a></li>
             <li><a href="{{ url_for('contact') }}">Contacto</a></li>
-            <li><a href="{{ url_for('history') }}">Records</a></li>
         </ul>
-
         <hr>
     </div>
-    
-    </header>
+
+    <div id = "tutorial">
+        <pre>
+            <H3>Tienes dudas,preguntas o sugerencias  &#128214; </H3>
+        Comentanos que tal te ha parecido el clasificador de tweets, este es un proyecto que sigue en construccion asi que te dejamos un nuestras redes sociales, para comunicarte
+        con nosotros de manera directa o puedes llenar el formulario para enviarnos tu opinion &#129302;&#129302;
+        
+       
+        </pre>
+    </div>
 
     <main id="main-content">
-        <h2>Contact Us</h2>
-        <form action="submit_contact.php" method="post">
-            <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name" required><br><br>
+       
+        <div class="contact-container">
+            
+            <div class="form-container">
+                <h2>Contactanos</h2>
+                <form action="submit_contact.php" method="post">
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" required><br><br>
 
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br><br>
 
-            <label for="subject">Asunto:</label><br>
-            <input type="text" id="subject" name="subject" required><br><br>
+                    <label for="subject">Asunto:</label><br>
+                    <input type="text" id="subject" name="subject" required><br><br>
 
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="3" required></textarea><br><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="3" required></textarea><br><br>
 
-            <label for="emoji">Que opinas del clasificador:</label><br>
-            <select id="emoji" name="emoji">
-                <option value="happy">&#128522; Feliz</option>
-                <option value="sad">&#128546; Triste</option>
-                <option value="angry">&#128544; Furioso</option>
-                <option value="confused">&#128533; Confundido</option>
-            </select><br><br>
+                    <label for="emoji">Que opinas del clasificador:</label><br>
+                    <select id="emoji" name="emoji">
+                        <option value="happy">&#128522; Feliz</option>
+                        <option value="sad">&#128546; Triste</option>
+                        <option value="angry">&#128544; Furioso</option>
+                        <option value="confused">&#128533; Confundido</option>
+                    </select><br><br>
 
-            <input type="submit" value="Submit">
-        </form>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="social-media-icons">
+                <h3>¡¡Contactanos Directamente!!</h3>
+                <a href="https://github.com/FelipeOrtizHe" title="github">
+                    <img src="{{ url_for('static', filename='images/github.png') }}" alt="github">
+                </a>
+                <a href="https://www.linkedin.com/in/felipe-ortiz-b26538248/" title="LinkedIn">
+                    <img src="{{ url_for('static', filename='images/linked.png') }}" alt="linked">
+                </a>
+            </div>
+        </div>
     </main>
 
-    <div class="contact-directly">
-        <h3>¡¡Contactanos Directamente!!</h3>
-        <div class="social-media-icons">
-            <a href="https://github.com/FelipeOrtizHe"  title="github">
-                <img src="/images/github.png" alt="github">
-            </a>
-            <a href="https://www.linkedin.com/in/felipe-ortiz-b26538248/"  title="LinkedIn">
-                <img src="/images/linked.png" alt="linked">
-            </a>
-        </div>
-
-
-
-     <footer id="footer">
-            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-        </footer>
-
+    <footer id="footer">
+        <p>&copy; 2024 Feltoz. All rights reserved.</p>
+    </footer>
 </body>
 </html>
-    

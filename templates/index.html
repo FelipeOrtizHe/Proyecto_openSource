@@ -10,7 +10,6 @@
             // Obtener el formulario
             var form = document.getElementById('uploadForm');
 
-            // Enviar el formulario con AJAX
             var formData = new FormData(form);
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/');
@@ -19,7 +18,7 @@
                     // Parsear la respuesta JSON
                     var response = JSON.parse(xhr.responseText);
                     if (response.success) {
-                        // Iniciar la descarga automáticamente
+                
                         var downloadLink = document.createElement('a');
                         downloadLink.href = response.zip_link;
                         downloadLink.download = response.zip_filename;
@@ -38,8 +37,24 @@
 <body>
     <div id="container">
         <header id="header">
-            <!-- Encabezado y menú aquí -->
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/x.png') }}" alt="twitter">
+            </div>
+            <div class="title">
+                <h1>CLASIFICACIÓN DE TWEETS</h1>
+            </div>
         </header>
+    <div id="menu">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Inicio</a></li>
+            <li><a href="{{ url_for('tutorial') }}">Tutorial</a></li>
+            <li><a href="{{ url_for('classificator') }}">¡¡Clasificador!!</a></li>
+            <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+
+        </ul>
+        <hr>
+    </div>
+    </header>
 
         <div id="content">
             <h1>Clasificación de Emociones</h1>
@@ -56,8 +71,16 @@
             {% endif %}
         </div>
 
+        <div id = "tutorial">
+            <pre>
+                <H3>Tutorial Como usar el clasificador de emociones &#128214; </H3>
+            Subir el archivo .csv &#129302; , luego le daremos click al al botón generar calificaciones, al pulsar el botón automanticamente empezara la descarga de un ZIP, el cual contendra
+            el analisis del archivo.csv, dentro del Zip solo se enviaran imagenes con los resultados respectivos a los valores dentro del csv
+           
+        
+
         <footer id="footer">
-            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <p>&copy; 2024 Feltoz. All rights reserved.</p>
         </footer>
     </div>
 </body>

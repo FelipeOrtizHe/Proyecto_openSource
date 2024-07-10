@@ -10,7 +10,6 @@ app = Flask(__name__)
 # Inicializamos el pipeline de clasificación de texto
 classifier = initialize_classifier()
 
-# Ruta para la página principal
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -21,7 +20,6 @@ def index():
                 file_path = os.path.join(app.config['UPLOAD_FOLDER'], csv_file.filename)
                 csv_file.save(file_path)
 
-                # Leer el archivo CSV especificando la codificación
                 data = pd.read_csv(file_path, encoding='utf-8')
 
                 # Detectar la columna con las frases
@@ -33,14 +31,13 @@ def index():
                 output_dir = os.path.join(app.config['UPLOAD_FOLDER'], 'calificacion')
                 os.makedirs(output_dir, exist_ok=True)
 
-                # Iterar sobre las frases en la columna detectada
+
                 for index, row in data.iterrows():
                     user_input = row[column_name]
 
-                    # Clasificar el texto
+                 
                     prediction = classifier(user_input)
 
-                    # Generar un nombre de archivo único para cada gráfica
                     filename = os.path.join(output_dir, f"calificacion_{index}.png")
                     plot_emotion_scores(prediction, filename, title=user_input)
 
@@ -51,11 +48,10 @@ def index():
                         for file in files:
                             zip_file.write(os.path.join(root, file), file)
 
-                # Devolver la URL para descargar el archivo ZIP
+
                 zip_link = f"/download/{os.path.basename(zip_filename)}"
                 return jsonify({'success': True, 'zip_link': zip_link, 'zip_filename': os.path.basename(zip_filename)})
-
-    # Renderizar la plantilla HTML con el formulario de carga
+            
     return render_template('index.html')
 
 # Ruta para descargar archivos ZIP
@@ -78,9 +74,6 @@ def classificator():
 def contact():
     return render_template('contact.html')
 
-@app.route('/history')
-def history():
-    return render_template('history.html')
 
 if __name__ == "__main__":
     app.config['UPLOAD_FOLDER'] = 'uploads'

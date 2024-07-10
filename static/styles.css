@@ -1,16 +1,11 @@
-
-
-body,html{
-    font-family: 'Ubuntu Mono', monospace;
-    font-size: 22px;
-    background-color: rgba(44, 87, 124, 0.295);
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-
-    
+body, html {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 22px;
+  background-color: rgba(44, 87, 124, 0.295);
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
-
 
 #menu hr {
   border-color: #1DA1F2;
@@ -19,186 +14,202 @@ body,html{
   margin-bottom: 10px; 
 }
 
-
-
 #container {
-    width: 100%; 
-    max-width:fit-content; 
-    margin: 0;
-    overflow: hidden;
+  width: 100%; 
+  max-width: fit-content; 
+  margin: 0;
+  overflow: hidden;
 }
 
-
 #menu ul {
-
-    padding: 0;
-    margin: 10px;
-    list-style: none;
-    display: flex;
-    justify-content: start;
-    font-size: 25px;
+  padding: 0;
+  margin: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  font-size: 25px;
 }
 
 #menu ul li {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 #menu ul li a {
-    color: #111111;
-    text-decoration: none;
-    padding: 13px 25px;
-    transition: background-color 0.5s ease;
+  color: #111111;
+  text-decoration: none;
+  padding: 13px 25px;
+  transition: background-color 0.5s ease;
 }
 
 #menu ul li a:hover {
-    background-color:#1DA1F2;
-    border-radius: 5px;
+  background-color: #1DA1F2;
+  border-radius: 5px;
 }
 
 #header .title h1 {
-    font-size: 50px;
-    text-align: center;
-    
+  font-size: 50px;
+  text-align: center;
 }
 
 #header .logo img {
-    height: 100px;  /* Adjusted height */
-    width: 100px;   /* Adjusted width */
-    margin-right: 15px;
+  height: 100px;
+  width: 100px;
+  margin-right: 15px;
 }
 
 #ejemplo h3 {
+  color: #0d0d0e;
+  text-align: center;
+  font-size: 34px;
+}
 
-    color: #0d0d0e;
-    text-align: center;
-    font-size: 34px;
+#content h1{
+
+  text-align: center;
+  margin-bottom: 100px;
 
 }
 
 #ejemplo pre {
-    padding: 10px;
-    font-size: 25px;
-    margin-left: 40px;
-    margin-right: 40px;
-    white-space:initial; 
-    word-wrap: break-word; 
-    max-width: 100%; 
-    overflow: auto; 
+  padding: 10px;
+  font-size: 25px;
+  margin-left: 40px;
+  margin-right: 40px;
+  white-space: initial; 
+  word-wrap: break-word; 
+  max-width: 100%; 
+  overflow: auto; 
 }
 
 #footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-    border-top: #77aaff 3px solid;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: #77aaff 3px solid;
 }
 
-#ejemplo pre img{
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    width: auto;
-    display:block;
-    margin-bottom: 40px;
-    margin-top: 40px;
+#ejemplo pre img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  width: auto;
+  display: block;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
-#tutorial pre img{
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    width: auto;
-    display:block;
-    margin-bottom: 40px;
-    margin-top: 40px;
+#tutorial pre img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  width: auto;
+  display: block;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 #tutorial pre {
-    padding: 10px;
-    font-size: 25px;
-    margin-left: 40px;
-    margin-right: 40px;
-    white-space:initial; 
-    word-wrap: break-word; 
-    max-width: 100%; 
-    overflow: auto;
-    line-height: 1.5;
+  padding: 10px;
+  font-size: 25px;
+  margin-left: 40px;
+  margin-right: 40px;
+  white-space: initial; 
+  word-wrap: break-word; 
+  max-width: 100%; 
+  overflow: auto;
+  line-height: 1.5;
 }
 
 #opciones {
-    text-align: center;
+  text-align: center;
 }
 
-#csvForm {
-    display:flex;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    margin: 20px auto;
-    text-align: center;
-  }
-  
-  #csvForm label {
-    font-size: 28px;
+#header {
+  background-color: #1DA1F2;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
-    font-weight:400;
-    margin-bottom: 10px;
-  }
-  
-  #csvForm input[type="file"] {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  #csvForm button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 200px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  #csvForm button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+form {
+  max-width: 500px;
+  margin: auto;
+}
 
-  
-  #header {
-    background-color: #1DA1F2;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-  }
+#tutorial h3 {
+  color: #0d0d0e;
+  text-align: center;
+  font-size: 30px;
+}
 
-  form {
-    max-width: 500px;
-    margin:  auto;
-  }
-  
-  form label, form input, form textarea, form select {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-  }
+#main-content {
+  margin-top: 5px;
+}
 
-  #tutorial h3 {
+#main-content h2{
+  text-align: center;
+}
 
-    color: #0d0d0e;
-    text-align: center;
-    font-size: 30px;
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
+.form-container {
+  background-color: rgba(255, 255, 255, 0.281);
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  margin-right: 100px;
+  margin-left: 200px;
+
+}
+
+.social-media-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.social-media-icons a {
+  margin-bottom: 20px;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+}
+
+form label, form input, form textarea, form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 50px;
+  align-items: center;
+  border-radius: 2px;
+  border: #0d0d0e;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #1DA1F2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #0d8ae8;
 }

@@ -3,7 +3,6 @@ import pandas as pd
 
 
 def detect_text_column(data):
-    # Asumimos que la columna con las frases tendrá la mayor longitud promedio de cadenas
     text_column = None
     max_avg_length = 0
 
